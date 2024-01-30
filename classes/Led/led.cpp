@@ -49,16 +49,33 @@ void LED::Set_Direction(){
 Std_Return LED::GPIO_ON() {
     Std_Return R_Value = Std_Return::STD_R_NOK;
 
-    dir_Path = gpio_Path + "/direction";
-    std::ofstream outputFile(dir_Path);
+    val_Path = gpio_Path + "/value";
+    std::ofstream outputFile(val_Path);
     if (!outputFile.is_open()) 
     {
-        std::cerr << "Error opening direction file: " << dir_Path << std::endl;
+        std::cerr << "Error opening value file: " << val_Path << std::endl;
     }
     else
     {
-        outputFile << "out" ;
+        outputFile << "1" ;
         outputFile.close();
-        std::cout << "Data has been written to " << dir_Path << std::endl;
+        std::cout << "Data has been written to " << val_Path << std::endl;
+     }
+}
+
+Std_Return LED::GPIO_OFF() {
+    Std_Return R_Value = Std_Return::STD_R_NOK;
+
+    val_Path = gpio_Path + "/value";
+    std::ofstream outputFile(val_Path);
+    if (!outputFile.is_open()) 
+    {
+        std::cerr << "Error opening value file: " << val_Path << std::endl;
+    }
+    else
+    {
+        outputFile << "0" ;
+        outputFile.close();
+        std::cout << "Data has been written to " << val_Path << std::endl;
      }
 }
