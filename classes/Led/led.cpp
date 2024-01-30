@@ -80,6 +80,17 @@ Std_Return LED::GPIO_OFF() {
      }
 }
 
+void LED::Led_Blink(int count, double delay){
+    clock_t start_time = 0;
+    for(int i=0; i< count; i++){
+        start_time = std::clock();
+        while ((std::clock() - start_time) / static_cast<double>(CLOCKS_PER_SEC) < delay){
+            GPIO_ON();
+        }
+        GPIO_OFF();
+    }
+}
+
 Std_Return GPIO_Value(){
-    
+
 }

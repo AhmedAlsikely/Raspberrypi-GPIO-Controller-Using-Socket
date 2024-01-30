@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <filesystem>
 #include <fstream>
+#include <ctime>
 
 enum class Std_Return : unsigned char{
     STD_R_NOK,
