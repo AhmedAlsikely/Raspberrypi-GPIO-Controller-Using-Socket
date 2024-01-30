@@ -16,23 +16,17 @@ class LED : public GPIO {
         LED(int pin_num);
 
 
-        Std_Return GPIO_ON() override {
-
-        }
-        Std_Return GPIO_OFF() override {
-
-        }
-        Std_Return GPIO_Toggle() override{
-
-        }
-        Std_Return GPIO_Value() override {
-
-        }
+        Std_Return GPIO_ON() override ;
+        Std_Return GPIO_OFF() override ;
+        Std_Return GPIO_Toggle() override ;
+        Std_Return GPIO_Value() override ;
 
     private:
         int gpio_num_i;
         std::string gpio_num_s;
         std::string dir_Path =  "/sys/class/gpio" ;
+
+        Std_Return Set_Direction() ;
 };
 
 #endif _LED_H_

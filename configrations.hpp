@@ -9,6 +9,7 @@
 #include <string>
 #include <stdio.h>
 #include <filesystem>
+#include <fstream>
 
 enum class Std_Return : unsigned char{
     STD_R_NOK,
