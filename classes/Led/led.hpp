@@ -30,7 +30,9 @@ class LED : public GPIO {
         }
 
     private:
-        int gpio_num;    
+        int gpio_num_i;
+        std::string gpio_num_s;
+        std::string dir_Path =  "/sys/class/gpio" ;
 };
 
 #endif _LED_H_
