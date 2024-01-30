@@ -1,8 +1,8 @@
 #include "led.hpp"
 
-LED::LED(int pin_num): gpio_num_i(pin_num){
-    gpio_num_s = std::to_string(gpio_num_i);
-    gpio_Path = gpio_Path + gpio_num_s;
+LED::LED(std::string pin_num) : gpio_num(pin_num){
+    
+    gpio_Path = gpio_Path + gpio_num;
 
     if (std::filesystem::exists(gpio_Path) && std::filesystem::is_directory(gpio_Path)) 
     {
@@ -20,7 +20,7 @@ LED::LED(int pin_num): gpio_num_i(pin_num){
         }
         else
         {
-            outputFile << gpio_num_s ;
+            outputFile << gpio_num ;
             outputFile.close();
             std::cout << "Data has been written to " << export_path << std::endl;
             sleep(1);
@@ -95,8 +95,4 @@ void LED::Led_Blink(int count, double delay){
         }
         GPIO_OFF();
     }
-}
-
-Std_Return GPIO_Value(){
-
 }
