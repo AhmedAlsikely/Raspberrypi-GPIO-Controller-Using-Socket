@@ -4,10 +4,7 @@
 //---------------------------- Include Section --------------------------------
 #include "../GPIO/gpio.hpp"
 
-//---------------------------- Macroes Section --------------------------------
-#define PATH_EXPORT         "/sys/class/gpio/export"
-#define PATH_DIRECTION      "/sys/class/gpio/gpio2/direction"
-#define PATH_VALUE          "/sys/class/gpio/gpio2/value"
+//---------------------------- class Section --------------------------------
 
 class LED : public GPIO {
 
@@ -25,7 +22,9 @@ class LED : public GPIO {
         int gpio_num_i;
         std::string gpio_num_s;
         std::string gpio_Path =  "/sys/class/gpio" ;
+        std::string export_path = "/sys/class/gpio/export";
         std::string dir_Path;
+        std::string val_Path;
         void Set_Direction() ;
 };
 
