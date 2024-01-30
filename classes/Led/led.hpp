@@ -1,7 +1,13 @@
 #ifndef _LED_H_
 #define _LED_H_
 
+//---------------------------- Include Section --------------------------------
 #include "../GPIO/gpio.hpp"
+
+//---------------------------- Macroes Section --------------------------------
+#define PATH_EXPORT         "/sys/class/gpio/export"
+#define PATH_DIRECTION      "/sys/class/gpio/gpio2/direction"
+#define PATH_VALUE          "/sys/class/gpio/gpio2/value"
 
 class LED : public GPIO {
 
