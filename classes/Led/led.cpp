@@ -23,6 +23,7 @@ LED::LED(int pin_num): gpio_num_i(pin_num){
             outputFile << gpio_num_s ;
             outputFile.close();
             std::cout << "Data has been written to " << PATH_EXPORT << std::endl;
+            sleep(1);
             Set_Direction();
 
         }
