@@ -79,3 +79,7 @@ Std_Return LED::GPIO_OFF() {
         std::cout << "Data has been written to " << val_Path << std::endl;
      }
 }
+
+Std_Return GPIO_Value(){
+    
+}
