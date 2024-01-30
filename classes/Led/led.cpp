@@ -54,13 +54,16 @@ Std_Return LED::GPIO_ON() {
     if (!outputFile.is_open()) 
     {
         std::cerr << "Error opening value file: " << val_Path << std::endl;
+        R_Value = Std_Return::STD_R_NOK;
     }
     else
     {
         outputFile << "1" ;
         outputFile.close();
         std::cout << "Data has been written to " << val_Path << std::endl;
+        R_Value = Std_Return::STD_R_OK;
      }
+     return R_Value;
 }
 
 Std_Return LED::GPIO_OFF() {
@@ -71,13 +74,16 @@ Std_Return LED::GPIO_OFF() {
     if (!outputFile.is_open()) 
     {
         std::cerr << "Error opening value file: " << val_Path << std::endl;
+        R_Value = Std_Return::STD_R_NOK;
     }
     else
     {
         outputFile << "0" ;
         outputFile.close();
         std::cout << "Data has been written to " << val_Path << std::endl;
+        R_Value = Std_Return::STD_R_OK;
      }
+     return R_Value;
 }
 
 void LED::Led_Blink(int count, double delay){
