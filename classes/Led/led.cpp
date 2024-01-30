@@ -2,17 +2,17 @@
 
 LED::LED(int pin_num): gpio_num_i(pin_num){
     gpio_num_s = std::to_string(gpio_num_i);
-    dir_Path = dir_Path + gpio_num_s;
+    gpio_Path = gpio_Path + gpio_num_s;
 
-    if (std::filesystem::exists(dir_Path) && std::filesystem::is_directory(dir_Path)) 
+    if (std::filesystem::exists(gpio_Path) && std::filesystem::is_directory(gpio_Path)) 
     {
         std::cout << "File exists." << std::endl;
-
+        Set_Direction();
     }
     else 
     {
-        std::cout << "File does not exist." << std::endl;
-        std::cout << "will create file now." << std::endl;
+        std::cout << gpio_Path << " Folder does not exist." << std::endl;
+        std::cout << "will create Folder now." << std::endl;
         std::ofstream outputFile(PATH_EXPORT);
         if (!outputFile.is_open()) 
         {
@@ -23,12 +23,24 @@ LED::LED(int pin_num): gpio_num_i(pin_num){
             outputFile << gpio_num_s ;
             outputFile.close();
             std::cout << "Data has been written to " << PATH_EXPORT << std::endl;
-
+            Set_Direction();
 
         }
     }
 }
 
-Std_Return LED::Set_Direction(){
-    
+void LED::Set_Direction(){
+
+    dir_Path = gpio_Path + "/direction";
+    std::ofstream outputFile(dir_Path);
+    if (!outputFile.is_open()) 
+    {
+        std::cerr << "Error opening direction file: " << PATH_EXPORT << std::endl;
+    }
+    else
+    {
+        outputFile << "out" ;
+         outputFile.close();
+         std::cout << "Data has been written to " << dir_Path << std::endl;
+     }
 }

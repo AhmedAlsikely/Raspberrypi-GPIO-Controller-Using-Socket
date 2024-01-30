@@ -24,9 +24,9 @@ class LED : public GPIO {
     private:
         int gpio_num_i;
         std::string gpio_num_s;
-        std::string dir_Path =  "/sys/class/gpio" ;
-
-        Std_Return Set_Direction() ;
+        std::string gpio_Path =  "/sys/class/gpio" ;
+        std::string dir_Path;
+        void Set_Direction() ;
 };
 
 #endif _LED_H_
