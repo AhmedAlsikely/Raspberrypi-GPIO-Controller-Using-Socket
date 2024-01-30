@@ -35,12 +35,12 @@ void LED::Set_Direction(){
     std::ofstream outputFile(dir_Path);
     if (!outputFile.is_open()) 
     {
-        std::cerr << "Error opening direction file: " << PATH_EXPORT << std::endl;
+        std::cerr << "Error opening direction file: " << dir_Path << std::endl;
     }
     else
     {
         outputFile << "out" ;
-         outputFile.close();
-         std::cout << "Data has been written to " << dir_Path << std::endl;
+        outputFile.close();
+        std::cout << "Data has been written to " << dir_Path << std::endl;
      }
 }
