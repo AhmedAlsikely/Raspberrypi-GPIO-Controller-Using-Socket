@@ -20,12 +20,12 @@ Std_Return Command::executeCmdLine(std::string commaned){
     if(tokens[0] == "led")
     {
         LED led(tokens[1]);
-        if(tokens[2] == "1")
+        if(tokens[2] == "on")
         {
             led.GPIO_ON();
             R_value = Std_Return::STD_R_OK;
         }
-        else if (tokens[2] == "0"){
+        else if (tokens[2] == "off"){
             led.GPIO_OFF();
             R_value = Std_Return::STD_R_OK;
         }
