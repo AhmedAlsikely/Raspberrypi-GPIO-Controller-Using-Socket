@@ -2,6 +2,7 @@
 #define COMMENT_H
 
 #include "../../configrations.hpp"
+#include "../Led/led.hpp"
 
 class Command {
     public:

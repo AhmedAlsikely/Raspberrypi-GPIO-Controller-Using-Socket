@@ -2,7 +2,6 @@
 
 Std_Return Command::executeCmdLine(std::string commaned){
     Std_Return R_value = Std_Return::STD_R_OK;
-
     /*
     split a std::string into substrings using a specified delimiter 
     and store the result in a std::vector<std::string>
@@ -15,58 +14,34 @@ Std_Return Command::executeCmdLine(std::string commaned){
         tokens.push_back(token);
     }
     //-----------------------------End spliting-----------------------------//
-    
-    const char * select_commaned = NULL;
-    pid_t child_pid;
-   
-    if(commaned.substr(0,7) == "youtube")
-    {
-        select_commaned = youtube;
-    }
-    else if(commaned.substr(0,3) == "cal")
-    {
-        select_commaned = cal;
-    }
-    else if(commaned.substr(0,8) == "poweroff")
-    {
-        select_commaned = poweroff;
-    }
-    else if(commaned.substr(0,6) == "vscode")
-    {
-        select_commaned = vscode;
-    }
-    else if(commaned.substr(0,8) == "terminal")
-    {
-        select_commaned = terminal;
-    }
-    else
-    {
-        std::cout <<  "Fault command" << std::endl;
-        R_value = Std_Return::STD_R_NOK;
-    }
 
-    if(R_value == Std_Return::STD_R_OK)
+    
+   
+    if(tokens[0] == "led")
     {
-        child_pid = fork();
-        if(child_pid < 0)
+        LED led(tokens[1]);
+        if(tokens[2] == "1")
         {
-            std::cout <<  "Fork faild" << std::endl;
+            led.GPIO_ON();
+            R_value = Std_Return::STD_R_OK;
+        }
+        else if (tokens[2] == "0"){
+            led.GPIO_OFF();
+            R_value = Std_Return::STD_R_OK;
+        }
+        else if (tokens[2] == "blink"){
+            led.Led_Blink(std::stoi(tokens[3]),std::stoi(tokens[4]));
+            R_value = Std_Return::STD_R_OK;
+        }
+        else {
+            std::cout <<  "argument number 3 Fault" << std::endl;
             R_value = Std_Return::STD_R_NOK;
         }
-        else if (child_pid == 0)
-        {
-            int result = std::system(select_commaned);
-            if (result == 0) 
-            {
-                Std_Return R_value = Std_Return::STD_R_OK;
-            }
-            else
-            {
-                std::cerr << "Error executing command" << std::endl;
-                Std_Return R_value = Std_Return::STD_R_NOK;
-            }
-        }
     }
-    
+    else 
+    {
+        R_value = Std_Return::STD_R_OK;
+    }
+
     return R_value;
 }
