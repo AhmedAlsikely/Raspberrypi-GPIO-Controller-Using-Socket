@@ -87,6 +87,7 @@ Std_Return Server::server_Recv_Command(){
     Command commd;
     while (true)
     {
+        //--------------
         memset(message, 0, sizeof(message));
         while(readSize = recv(newSocket, message,sizeof(message),0) > 0)
         {
