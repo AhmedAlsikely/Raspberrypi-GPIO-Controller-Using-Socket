@@ -13,7 +13,7 @@ class LED : public GPIO {
         LED(std::string pin_num);
         Std_Return GPIO_ON() override ;
         Std_Return GPIO_OFF() override ;
-        void Led_Blink(int count, double delay);
+        void Led_Blink(int count, int delay);
 
     private:
         std::string gpio_num ;

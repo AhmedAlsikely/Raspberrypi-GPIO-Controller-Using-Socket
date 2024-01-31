@@ -1,4 +1,5 @@
 #include "led.hpp"
+#include <unistd.h>
 
 LED::LED(std::string pin_num) : gpio_num(pin_num){
     
@@ -60,7 +61,7 @@ Std_Return LED::GPIO_ON() {
     {
         write( fd, "1", strlen("1"));
         close(fd);
-        std::cout << "Data has been written to " << val_Path << std::endl;
+        std::cout << "value 1 has been written to " << val_Path << std::endl;
         R_Value = Std_Return::STD_R_OK;
      }
      return R_Value;
@@ -80,19 +81,17 @@ Std_Return LED::GPIO_OFF() {
     {
         write( fd, "0", strlen("0"));
         close(fd);
-        std::cout << "Data has been written to " << val_Path << std::endl;
+        std::cout << "value 0 has been written to " << val_Path << std::endl;
         R_Value = Std_Return::STD_R_OK;
      }
      return R_Value;
 }
 
-void LED::Led_Blink(int count, double delay){
-    clock_t start_time = 0;
+void LED::Led_Blink(int count, int delay){
     for(int i=0; i< count; i++){
-        start_time = std::clock();
-        while ((std::clock() - start_time) / static_cast<double>(CLOCKS_PER_SEC) < delay){
-            GPIO_ON();
-        }
+        GPIO_ON();
+        sleep(delay);
         GPIO_OFF();
+        sleep(delay);
     }
 }
