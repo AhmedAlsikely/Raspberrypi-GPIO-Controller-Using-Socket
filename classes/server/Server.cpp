@@ -87,10 +87,10 @@ Std_Return Server::server_Recv_Command(){
     Command commd;
     while (true)
     {
-        //--------------
         memset(message, 0, sizeof(message));
-        while(readSize = recv(newSocket, message,sizeof(message),0) > 0)
+        while(recv(newSocket, message,sizeof(message),0) > 0)
         {
+            
             R_value = commd.executeCmdLine(message);
             
             if(R_value == Std_Return::STD_R_OK)

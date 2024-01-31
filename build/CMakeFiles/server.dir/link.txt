@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/server.dir/main.cpp.o CMakeFiles/server.dir/classes/Led/led.cpp.o CMakeFiles/server.dir/classes/command/command.cpp.o CMakeFiles/server.dir/classes/server/Server.cpp.o -o server 

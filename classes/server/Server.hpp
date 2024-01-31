@@ -2,13 +2,8 @@
 #define SERVER_H
 
 #include <arpa/inet.h>
-#include <iostream>
-#include <cstring>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <unistd.h>
-#include <csignal>
-#include <cstdlib>
 #include "../../configrations.hpp"
 #include "../command/command.hpp"
 

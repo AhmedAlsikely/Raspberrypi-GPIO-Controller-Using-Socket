@@ -1,0 +1,3 @@
+/home/ahmed/codes/Raspberrypi-GPIO-Controller-Using-Socket/build/CMakeFiles/server.dir
+/home/ahmed/codes/Raspberrypi-GPIO-Controller-Using-Socket/build/CMakeFiles/edit_cache.dir
+/home/ahmed/codes/Raspberrypi-GPIO-Controller-Using-Socket/build/CMakeFiles/rebuild_cache.dir

@@ -1,10 +1,6 @@
 #ifndef COMMENT_H
 #define COMMENT_H
 
-#include <iostream>
-#include <map>
-#include <cstring>
-#include <unistd.h>
 #include "../../configrations.hpp"
 
 class Command {
