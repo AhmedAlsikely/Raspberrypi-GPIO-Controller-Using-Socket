@@ -2,6 +2,20 @@
 
 Std_Return Command::executeCmdLine(std::string commaned){
     Std_Return R_value = Std_Return::STD_R_OK;
+
+    /*
+    split a std::string into substrings using a specified delimiter 
+    and store the result in a std::vector<std::string>
+    */
+    //---------------------------Start spliting-----------------------------//
+    std::vector<std::string> tokens;
+    std::istringstream tokenStream(commaned);
+    std::string token;
+    while (std::getline(tokenStream, token, ' ')) {
+        tokens.push_back(token);
+    }
+    //-----------------------------End spliting-----------------------------//
+    
     const char * select_commaned = NULL;
     pid_t child_pid;
    

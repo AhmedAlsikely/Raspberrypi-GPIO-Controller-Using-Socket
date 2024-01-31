@@ -12,6 +12,8 @@
 #include <filesystem>
 #include <fstream>
 #include <ctime>
+#include <vector>
+
 
 enum class Std_Return : unsigned char{
     STD_R_NOK,
