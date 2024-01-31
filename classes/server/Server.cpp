@@ -80,24 +80,6 @@ Std_Return Server::server_Accept(){
     return R_value;
 }
 
-Std_Return Server::server_Receive(){
-    Std_Return R_value = Std_Return::STD_R_NOK;
-    while (true)
-    {
-        while(readSize = recv(newSocket, message,sizeof(message),0) > 0)
-        {
-            std::cout << "recieved massage from client: "<< message << std::endl;
-            const char *response = "The Message Received Correctly";
-            if(write(newSocket,response,strlen(response)) == -1){
-                perror("failed send message to client");
-                Server::server_Close();
-            }
-        }
-    }
-    
-    return R_value;
-}
-
 
 Std_Return Server::server_Recv_Command(){
     Std_Return R_value = Std_Return::STD_R_NOK;

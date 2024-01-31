@@ -16,7 +16,6 @@ class Server{
     public:
         Std_Return server_Init(int port_number);
         Std_Return server_Accept();
-        Std_Return server_Receive();
         Std_Return server_Recv_Command();
         Std_Return server_Close();
 
