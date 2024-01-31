@@ -6,6 +6,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <cstring>
 #include <string>
 #include <stdio.h>
 #include <filesystem>
