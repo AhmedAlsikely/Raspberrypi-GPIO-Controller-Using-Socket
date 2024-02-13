@@ -19,5 +19,5 @@ set(HEADERS
 )
 
 
-add_executable(server ${SOURCES} ${HEADERS})
-
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
